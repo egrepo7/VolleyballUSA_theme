@@ -18,6 +18,7 @@
         // 801px and up
         max-width: 245px;
         margin-right: 0px;
+        display: none;
     }
 
     @include breakpoint('large') {
@@ -38,14 +39,15 @@
 
 .page-heading.page-heading--category {
     line-height: 33px;
-    padding: 11px 0 24px;
-    border-bottom: 1px solid $color-alt--hover;
+    // padding: 11px 0 24px;
+    // border-bottom: 1px solid $color-alt--hover;
     margin-bottom: 24px;
 
     @include breakpoint('medium') {
         // 801px and up
         // text-align: left;
-        padding: 11px 0 14px;
+        // padding: 11px 0 14px;
+        margin-bottom: 40px;
     }
 }
 
@@ -104,8 +106,8 @@
 
 .page--category .actionBar {
     margin-top: 0;
-    margin-bottom: 32px;
-    border-bottom: 1px solid $color-alt--hover;
+    margin-bottom: 0;
+    // border-bottom: 1px solid $color-alt--hover;
 }
 
 // collapse
@@ -234,15 +236,15 @@
 
 .page--category .actionBar-section .form-field {
     border-radius: 0;
-    height: 3.5rem;
+    // height: 3.5rem;
     border: 1px solid $color-alt--hover;
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    // margin-bottom: 32px;
 
     @include breakpoint('medium') {
         // 801px and up
-        margin-bottom: 16px;
+        // margin-bottom: 16px;
     }
 }
 
@@ -433,6 +435,31 @@
             height: remCalc(620px) !important;
             width: auto;
             display: block;
+        }
+    }
+}
+
+
+.category-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; // optional, allows wrapping on smaller screens
+    // margin-bottom: 20px; // optional spacing
+    border-bottom: 1px solid $color-alt--hover;
+    margin-bottom: 24px;
+
+
+    .category-toolbar__sort {
+        // aligns to left by default
+    }
+
+    .category-toolbar__view-toggle {
+        // aligns to right
+        text-align: right;
+
+        @include breakpoint('small') {
+            // adjust if needed
         }
     }
 }

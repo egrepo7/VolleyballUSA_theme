@@ -1,7 +1,9 @@
 {
   "customLayouts": {
     "brand": {},
-    "category": {},
+    "category": {
+      "category-list-full-width.html": "/padding/"
+    },
     "page": {},
     "product": {}
   },
