@@ -9,15 +9,15 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 @mixin __h3($breakpoint) {
     font-family: $font-family--heading;
     @if ($breakpoint == $screen-large) {
-        font-weight: 900;
+        font-weight: 700;
         font-size: 23px;
         line-height: 28px;
         letter-spacing: -0.01em;
     }
     @if ($breakpoint == $screen-small) {
         font-family: $font-family--heading;
-        font-size: 21px;
-        font-weight: 900;
+        font-size: 18px;
+        font-weight: 700;
         line-height: 25px;
         text-transform: none;
     }
@@ -25,7 +25,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 @mixin __h4($breakpoint) {
     font-family: $font-family--heading;
     @if($breakpoint == $screen-large) {
-        font-weight: 900;
+        font-weight: 700;
         font-size: 18px;
         line-height: 22px;
         letter-spacing: -0.01em;
@@ -34,7 +34,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 @mixin __h6($breakpoint) {
     font-family: $font-family--heading;
     @if($breakpoint == $screen-large) {
-        font-weight: 900;
+        font-weight: 700;
         font-size: 13px;
         line-height: 16px;
     }
@@ -482,6 +482,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     .navPages .navPage-subMenu-list {
         max-width: unset !important;
         display: flex;
+        font-weight: 600;
         flex-direction: column;
         width: auto !important;
         // padding-right: 1.5rem;
@@ -551,12 +552,12 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     }
     .navPages-item > a.navPages-action {
         @include __h6($screen-large);
-        font-weight: 700;
+        font-weight: 600;
         height: 48px;
         font-size: 12px;
 
         @media only screen and (min-width: 1300px) {
-            font-weight: 900;
+            font-weight: 600;
             height: auto;
             font-size: 13px;
         }
@@ -839,10 +840,11 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     }
     .navPages-action.has-subMenu.no-megaMenu .navPages-action__wrapper {
         display: flex;
+        align-items: center;
         margin-left: 1.5rem;
         margin-right: 1.5rem;
-        padding-bottom: 18px;
-        border-bottom: 1px solid #D3D3D3;
+        // padding-bottom: 4px;
+        // border-bottom: 1px solid #D3D3D3;
         > span:first-of-type {
             @include __h3($screen-small);
             text-transform: none;
@@ -878,8 +880,8 @@ $header-mid-columns-desktop: auto auto 1fr auto;
         display: flex;
         margin-left: 1.5rem;
         margin-right: 1.5rem;
-        padding-bottom: 18px;
-        border-bottom: 1px solid #989898;
+        // padding-bottom: 18px;
+        // border-bottom: 1px solid #989898;
         > span:first-of-type {
             @include __h3($screen-small);
             margin: auto 0;
@@ -905,7 +907,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     .navPage-subMenu.is-open
     .navPage-subMenu-list
     li:first-of-type div {
-        padding-top: 12px;
+        // padding-top: 12px;
     }
     .navPage-subMenu-action.navPages-action.no-megaMenu {
         // margin-left: 1.5rem;
@@ -1005,7 +1007,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 
 .mega-menu-shop-all span {
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 700;
     white-space: initial;
 }
 
@@ -1038,7 +1040,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     margin: 0;
     padding: 12px;
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -1062,10 +1064,10 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 .navPages-container.is-open {
     padding-top: 142px;
     @media only screen and (min-width: 334px) {
-        padding-top: 122px;
+        padding-top: 55px;
     }
     @media only screen and (min-width: 633px) {
-        padding-top: 100px;
+        padding-top: 55px;
     }
 }
 

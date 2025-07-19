@@ -12,7 +12,7 @@
             </svg>
         </span>
     </a>
-    <div class="navPage-subMenu" id="navigation-item__shop-all" aria-hidden="true" tabindex="-1">
+    <!-- <div class="navPage-subMenu" id="navigation-item__shop-all" aria-hidden="true" tabindex="-1">
         <ul class="navPage-subMenu-list">
             {{#for 1 (lang 'custom.header.static.navigation-list.shop-all.number-of-items')}}
             <li 
@@ -84,7 +84,7 @@
                 {{/if}}
             {{/for}}
         </ul>
-    </div>
+    </div> -->
 </li>
 {{/if}}
 {{#for 1 (lang 'custom.header.static.navigation-list.navigation-items.number-of-items')}}
@@ -105,11 +105,13 @@
             </span>
         </div>
     </a>
+    <!-- Category Subitems -->
     <div class="navPage-subMenu" id="navigation-item__item-{{$index}}" aria-hidden="true" tabindex="-1">
         <ul class="navPage-subMenu-list">
             {{#for 1 (lang (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' $index)'.number-of-sub-items'))}}
             {{#if (lang (concat (concat (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' ../$index)'.sub-item-')$index)'.has-sub-items')) '===' 'true'}}
             <li class="navPage-subMenu-item">
+                <!-- poles/padding -->
                 <a 
                     class="navPage-subMenu-action navPages-action no-megaMenu"
                     href="{{lang (concat (concat (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' ../$index)'.sub-item-') $index) '.url')}}"
@@ -124,9 +126,9 @@
                             data-collapsible-disabled-state="open"
                             data-collapsible-enabled-state="closed"
                         >
-                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                            <!-- <i class="icon navPages-action-moreIcon" aria-hidden="true">
                                 <svg><use xlink:href="#icon-chevron-down" /></svg>
-                            </i>
+                            </i> -->
                         </span>
                     </div>
                 </a>
@@ -146,6 +148,7 @@
                 </ul>
             </li>
             {{else}}
+            <!-- everything but poles/padding -->
             <li class="navPage-subMenu-item">
                 <a 
                     class="navPage-subMenu-action navPages-action no-megaMenu"
@@ -162,6 +165,7 @@
             {{/for}}
         </ul>
     </div>
+    <!-- end category sub items -->
     {{else}}
     <a class="navPages-action has-subMenu no-megaMenu" href="{{lang (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' $index)'.url')}}">
         <div class="navPages-action__wrapper">

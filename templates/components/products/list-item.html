@@ -51,6 +51,7 @@
                     {{/if}}
                 {{/or}}
             {{/if}}
+            
             <div class="list-img-container" {{#if theme_settings.its.image_swap_on_hover}} data-image-swap-src="{{#each images}}{{#if @index '===' 1}}{{getImage data 'productgallery_size'}}{{/if}}{{/each}}"{{/if}}>
                 {{> components/common/responsive-img
                     image=image

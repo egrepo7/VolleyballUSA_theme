@@ -434,6 +434,7 @@
         @include breakpoint('medium') {
             height: remCalc(620px) !important;
             width: auto;
+            margin: 0 auto;
             display: block;
         }
     }

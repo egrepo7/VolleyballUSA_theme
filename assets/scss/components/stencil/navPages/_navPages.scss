@@ -188,7 +188,7 @@
     display: block;
     font-size: fontSize("smaller");
     font-weight: fontWeight("bold");
-    padding: spacing("half") 0;
+    padding: 16px 0;
     text-decoration: none;
     text-transform: uppercase;
 
@@ -406,7 +406,7 @@
 }
 
 .navPage-subMenu-action {
-    padding: spacing("half") 0;
+    padding: 16px 0;
 
     @include breakpoint("medium") {
         padding: spacing("half") 0 (spacing("half") + spacing("quarter"));

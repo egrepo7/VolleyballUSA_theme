@@ -23,7 +23,7 @@
     text-align: center;
     line-height: 33px;
     letter-spacing: -0.03rem;
-    font-weight: 800;
+    font-weight: 700;
     // margin-bottom: 32px;
 
     @include breakpoint('medium') {
@@ -36,13 +36,25 @@
 
 .productView-title-small {
     text-align: center; 
-    font-weight: 800;
+    font-weight: 700;
     font-size: remCalc(16px);
-    margin: .75rem 0; 
+    letter-spacing: -0.03rem;
+    margin: 0;
     @include breakpoint('medium') {
         text-align: initial;
         font-size: $fontSize-larger;
     }
+}
+
+.productName {
+    margin: 16px 0;
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lefttitle {
+    width: 100%;
 }
 
 .tab-title {
@@ -99,10 +111,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: grey;
     justify-content: center;
-    padding: 16px 0;
-    border-top: 1px solid $color-alt--hover;
-    border-bottom: 1px solid $color-alt--hover;
+    // padding: 0px 0 0 16px;
+    // border-top: 1px solid $color-alt--hover;
+    // border-bottom: 1px solid $color-alt--hover;
     margin-top: 24px;
 
     @include breakpoint('small') {
@@ -275,17 +288,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-block: remCalc(16px);
-    padding-block: remCalc(16px);
-    border-block: 1px solid $color-alt--hover;
+    margin-top: 21px;
+    // margin-block: remCalc(16px);
+    // padding-block: remCalc(16px);
+    // border-block: 1px solid $color-alt--hover;
 
     @include breakpoint('medium') {
         // 801px and up
         display: inline-flex;
-        margin: 0 48px 0 0;
-        border-top: 0;
-        width: 100%;
-        justify-content: initial;
+        align-items: end;
+        // margin: 0 48px 0 0;
+        // border-top: 0;
+        // width: 100%;
+        justify-content: end;
     }
 }
 
@@ -297,7 +312,7 @@
 .page--product .price--non-sale,
 .productView--quickView .price--rrp,
 .productView--quickView .price--non-sale {
-    font-size: 27px;
+    font-size: 1.5rem;
     color: #C4C4C4;
     font-weight: 700;
     margin-right: 16px;
@@ -306,7 +321,7 @@
 .price.price--withTax,
 .price--withoutTax {
     color: $color-primary;
-    font-size: 27px;
+    font-size: 1.5rem;
     font-weight: 800;
 
 }
@@ -340,7 +355,7 @@
 .productView--quickView .form-field--increments .form-label.form-label--alternate {
     color: $color-alt;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 700;
     text-align: center;
     justify-content: center;
     margin-bottom: 16px;
@@ -443,7 +458,7 @@
 // Prod desc
 // remove this later
 .productView-description .productView-title {
-    font-weight: 900;
+    font-weight: 700;
     font-size: 50px;
     margin-top: 2rem;
     padding-bottom: 24px;
@@ -547,7 +562,7 @@
 }
 
 .productView-options > form > div {
-    padding: 0 1.75rem;
+    // padding: 0 1.75rem;
 }
 
 .productView-options .form-field {

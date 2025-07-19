@@ -77,14 +77,9 @@
     
         <section class="productView-details product-data">
             <div class="productView-product">
-                <h2 class="productView-title-small" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h2>
-                {{#if product.brand}}
-                    <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="https://schema.org/Brand"{{/if}}>
-                        <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
-                    </h2>
-                {{/if}}
-    
-                    <div class="sku-rating-wrapper">
+                <div class="productName">
+                    <div class="lefttitle">
+                        <div class="sku-rating-wrapper">
                         {{product.detail_messages}}
                         <dl class="productView-info">
                             <dt class="productView-info-name sku-label"{{#unless product.sku}} {{/unless}}>{{lang 'products.sku'}}</dt>
@@ -209,9 +204,22 @@
                                 {{> components/products/modals/writeReview}}
                             {{/if}}
                         </div>
+                        </div>  
+                        <h2 class="productView-title-small" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h2>
+                        {{#if product.brand}}
+                            <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="https://schema.org/Brand"{{/if}}>
+                                <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+                            </h2>
+                        {{/if}}
+                    </div> 
+                    <div class="productView-price">
+                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            {{> components/products/price price=product.price schema_org=schema}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
                     </div>
-
-    
+                </div>
                 {{#filter product.custom_fields '__pdp-modal-link' property='name'}}
                     <a href="##" class="pdp-modal__link" data-reveal-id="pdp-modal">
                         <span class="icon icon--arrow-right">
@@ -235,7 +243,7 @@
             {{/filter}}
             </div>
         </section>
-        <section class="productView-details">
+        <!-- <section class="productView-details">
             <div class="productView-price">
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{> components/products/price price=product.price schema_org=schema}}
@@ -243,7 +251,7 @@
                     {{> components/common/login-for-pricing}}
                 {{/or}}
             </div>
-        </section>
+        </section> -->
     
         <section class="productView-details product-options">
             <div class="productView-options">
@@ -271,8 +279,8 @@
                             <span>{{product.call_for_price}}</span>
                         </p>
                     {{/if}}
-                    <div class="divider"></div>
-                    <div class="price-qty-wrapper">
+                    <div class="quantityAdd"">
+                        <div class="price-qty-wrapper">
 
                         {{!-- {{!> components/products/add-to-cart}} --}}
         
@@ -280,8 +288,8 @@
                             {{#if theme_settings.show_product_quantity_box}}
                                 {{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
                                 <div class="form-field form-field--increments">
-                                    <label class="form-label form-label--alternate"
-                                           for="qty[]">{{lang 'products.quantity'}}</label>
+                                    <!-- <label class="form-label form-label--alternate"
+                                           for="qty[]">{{lang 'products.quantity'}}</label> -->
                                         <div class="form-increment" data-quantity-change>
                                             <button class="button button--icon" data-action="dec">
                                                 <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
@@ -342,6 +350,7 @@
                             {{> components/common/alert/alert-error (lang 'products.sold_out')}}
                         {{/if}}
                     {{/if}}
+                    </div>
                 </form>
                 {{#if settings.show_wishlist}}
                     {{> components/common/wishlist-dropdown}}
