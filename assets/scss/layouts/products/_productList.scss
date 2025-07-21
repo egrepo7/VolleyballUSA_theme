@@ -8,7 +8,7 @@
 
 .productList {
     @include u-listBullets("none");
-    margin: spacing("half");
+    // margin: spacing("half");
 
     .product {
         + .product {
@@ -16,7 +16,25 @@
         }
     }
 }
+@include breakpoint("small") {
+    .product {
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
 
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+@include breakpoint("medium") {
+    .product {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
 
 // Product list item
 // -----------------------------------------------------------------------------
@@ -206,7 +224,8 @@
     > a {
         text-decoration: none;
         font-size: remCalc(27px);
-        font-weight: 900;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
     }
 }
 

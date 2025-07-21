@@ -306,10 +306,10 @@ $header-mid-columns-desktop: auto auto 1fr auto;
 .has-subMenu .navPages-action-moreIcon,
 .collapsible-icon-wrapper .navPages-action-moreIcon
 {
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
 }
 .has-subMenu.is-open .navPages-action-moreIcon, .collapsible-icon-wrapper.is-open .navPages-action-moreIcon {
-    transform: rotate(-180deg);
+    transform: rotate(deg);
 }
 @media only screen and (min-width: 1025px) {
     .header-logo {
@@ -367,7 +367,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
         padding: 12px 12px 12px 0;
     }
     .navUser-item.navUser-item--account a {
-        // padding-left: 18px;
+        padding-left: 16px;
     }
 
     .navUser-item--account .navUser-action,
@@ -623,7 +623,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
         @include breakpoint('xlarge') {
             // 1441px and up
             width: max-content;
-            max-width: 800px;
+            max-width: 880px;
             // width: calc(70vw - 410px);
 
             
@@ -858,6 +858,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
             padding-bottom: 0;
         }
     }
+    
     .navPages .navPage-subMenu-list {
         margin-right: 0;
         margin-top: 0;
@@ -898,8 +899,8 @@ $header-mid-columns-desktop: auto auto 1fr auto;
         padding-left: 0;
     }
     .navPages-action.has-subMenu.no-megaMenu {
-        // margin-left: 1.5rem;
-        // margin-right: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
     }
     .navPages-item.no-megaMenu {
         position: relative;
@@ -907,7 +908,7 @@ $header-mid-columns-desktop: auto auto 1fr auto;
     .navPage-subMenu.is-open
     .navPage-subMenu-list
     li:first-of-type div {
-        // padding-top: 12px;
+        padding-top: 0px;
     }
     .navPage-subMenu-action.navPages-action.no-megaMenu {
         // margin-left: 1.5rem;

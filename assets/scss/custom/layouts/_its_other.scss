@@ -2,10 +2,10 @@
 .page--category .body,
 .page--blog .body,
 .body {
-    margin-top: 7.5rem;
+    margin-top: 3.5rem;
     @include breakpoint('small') {
         // 551px and up
-        margin-top: 6.5rem;
+        margin-top: 4rem;
     }
 
     @include breakpoint('medium') {

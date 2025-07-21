@@ -73,8 +73,8 @@
                         "item-2": {
                             "name": "Boundary Lines",
                             "url": "/boundary-lines/",
-                            "has-sub-items": "true",
-                            "number-of-sub-items": "3",
+                            "has-sub-items": "0",
+                            "number-of-sub-items": "0",
                             "sub-item-1": {
                                 "name": "Adjustable",
                                 "url": "",
@@ -240,7 +240,7 @@
                             "mega-menu": {
                                 "is-enabled": "true",
                                 "heading": "Court Construction",
-                                "number-of-mega-menu-items": "3",
+                                "number-of-mega-menu-items": "4",
                                 "mega-menu-item-1": {
                                     "imageUrl": "/content/img/mega-menu/Indoor Court.png",
                                     "imageAltText": "Indoor Court",
@@ -258,6 +258,14 @@
                                     "number-of-sub-items": "0"
                                 },
                                 "mega-menu-item-3": {
+                                    "imageUrl": "/content/img/mega-menu/Beach Volleyball.png",
+                                    "imageAltText": "Beach Court",
+                                    "name": "Beach Court",
+                                    "url": "/college-court-construction-2/",
+                                    "has-sub-items": "false",
+                                    "number-of-sub-items": "0"
+                                },
+                                "mega-menu-item-4": {
                                     "imageUrl": "/content/img/mega-menu/Beach Volleyball.png",
                                     "imageAltText": "Beach Court",
                                     "name": "Beach Court",
@@ -365,7 +373,7 @@
                         "item-7": {
                             "name": "Padding",
                             "url": "/padding/",
-                            "has-sub-items": "true",
+                            "has-sub-items": "false",
                             "mega-menu": {
                                 "is-enabled": "true",
                                 "heading": "Padding",
@@ -554,7 +562,7 @@
                         "item-8": {
                             "name": "Antennas",
                             "url": "/volleyball-antennas/",
-                            "has-sub-items": "true",
+                            "has-sub-items": "false",
                             "mega-menu": {
                                 "is-enabled": "true",
                                 "heading": "Antennas",
@@ -1028,22 +1036,28 @@
                             "name": "Volleyball Court Construction",
                             "url": "/court-construction/",
                             "has-sub-items": "true",
-                            "number-of-sub-items": "3",
+                            "number-of-sub-items": "4",
                             "sub-item-1": {
-                                "name": "Indoor Court",
-                                "url": "/indoor-court-construction/",
+                                "name": "Home/City Outdoor Volleyball Court",
+                                "url": "/how-to-build-your-own-sand-court/",
                                 "has-sub-items": "false",
                                 "number-of-sub-items": "0"
                             },
                             "sub-item-2": {
-                                "name": "Grass Court",
-                                "url": "/grass-court-construction/",
+                                "name": "College Outdoor Volleyball Court",
+                                "url": "/college-court-construction/",
                                 "has-sub-items": "false",
                                 "number-of-sub-items": "0"
                             },
                             "sub-item-3": {
-                                "name": "Beach Court",
-                                "url": "/court-construction/",
+                                "name": "Indoor Volleyball Court",
+                                "url": "/indoor-court-construction/",
+                                "has-sub-items": "false",
+                                "number-of-sub-items": "0"
+                            },
+                            "sub-item-4": {
+                                "name": "Grass Volleyball Court",
+                                "url": "/grass-court-construction/",
                                 "has-sub-items": "false",
                                 "number-of-sub-items": "0"
                             }
@@ -1107,8 +1121,8 @@
                         "item-7": {
                             "name": "Padding",
                             "url": "/padding/",
-                            "has-sub-items": "true",
-                            "number-of-sub-items": "20",
+                            "has-sub-items": "false",
+                            "number-of-sub-items": "0",
                             "sub-item-1": {
                                  "name": "VBSP Volleyball Standard Pad",
                                     "url": "/vbsp-volleyball-standard-pad/",
@@ -1223,8 +1237,8 @@
                        "item-8": {
                             "name": "Antennas",
                             "url": "/volleyball-antennas/",
-                            "has-sub-items": "true",
-                            "number-of-sub-items": "7",
+                            "has-sub-items": "false",
+                            "number-of-sub-items": "0",
                             "sub-item-1": {
                                 "name": "Custom Printed Antennas",
                                     "url": "/custom-printed-antenna-set/",

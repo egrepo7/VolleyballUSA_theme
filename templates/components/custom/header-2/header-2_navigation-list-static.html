@@ -12,7 +12,7 @@
             </svg>
         </span>
     </a>
-    <!-- <div class="navPage-subMenu" id="navigation-item__shop-all" aria-hidden="true" tabindex="-1">
+    <div class="navPage-subMenu" id="navigation-item__shop-all" aria-hidden="true" tabindex="-1">
         <ul class="navPage-subMenu-list">
             {{#for 1 (lang 'custom.header.static.navigation-list.shop-all.number-of-items')}}
             <li 
@@ -84,12 +84,14 @@
                 {{/if}}
             {{/for}}
         </ul>
-    </div> -->
+    </div>
 </li>
 {{/if}}
+{{!-- loops through all main navigation items defined in config/lang files --}}
 {{#for 1 (lang 'custom.header.static.navigation-list.navigation-items.number-of-items')}}
 <li class="navPages-item no-megaMenu">
     {{#if (lang (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' $index)'.has-sub-items')) '===' 'true'}}
+     {{!-- Renders a top-level navigation item that has sub-items. --}}
     <a class="navPages-action has-subMenu no-megaMenu"
         href="{{lang (concat (concat 'custom.header.static.navigation-list.navigation-items.item-' $index)'.url')}}" 
         data-collapsible="navigation-item__item-{{$index}}"
@@ -126,9 +128,9 @@
                             data-collapsible-disabled-state="open"
                             data-collapsible-enabled-state="closed"
                         >
-                            <!-- <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                            {{!-- <i class="icon navPages-action-moreIcon" aria-hidden="true">
                                 <svg><use xlink:href="#icon-chevron-down" /></svg>
-                            </i> -->
+                            </i> --}}
                         </span>
                     </div>
                 </a>
@@ -177,3 +179,4 @@
     {{/if}}
 </li>
 {{/for}}
+

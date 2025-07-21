@@ -37,24 +37,33 @@
 .productView-title-small {
     text-align: center; 
     font-weight: 700;
-    font-size: remCalc(16px);
+    font-size: remCalc(32px); // Increased font size for mobile
     letter-spacing: -0.03rem;
     margin: 0;
     @include breakpoint('medium') {
         text-align: initial;
-        font-size: $fontSize-larger;
-    }
+        font-size: 2rem;  }
 }
 
 .productName {
     margin: 16px 0;
-    gap: 1rem;
+    padding-bottom: 16px;
+    gap: 0.5rem; // Half the size on mobile
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    @include breakpoint('medium') {
+        // 801px and up
+        flex-direction: row;
+        gap: 1rem; // Restore original gap on medium and up
+    }
 }
 
 .lefttitle {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .tab-title {
@@ -288,19 +297,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 21px;
-    // margin-block: remCalc(16px);
-    // padding-block: remCalc(16px);
-    // border-block: 1px solid $color-alt--hover;
+    // margin-top removed for mobile
 
     @include breakpoint('medium') {
         // 801px and up
         display: inline-flex;
-        align-items: end;
         // margin: 0 48px 0 0;
         // border-top: 0;
         // width: 100%;
         justify-content: end;
+        margin-top: 18px;
     }
 }
 
@@ -321,7 +327,7 @@
 .price.price--withTax,
 .price--withoutTax {
     color: $color-primary;
-    font-size: 1.5rem;
+    font-size: 32px;
     font-weight: 800;
 
 }
@@ -506,7 +512,7 @@
 .productView-product {
     @include breakpoint('medium') {
         // 801px and up
-        border-bottom: 0;
+        border-bottom: 1px solid #e5e5e5;
         padding: 0;
     }
 }
@@ -527,7 +533,8 @@
 
 // prod options 
 .page--product .form-select--small, .form-select--date {
-    max-width: 620px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .page--product .form-label--alternate,
@@ -563,6 +570,7 @@
 
 .productView-options > form > div {
     // padding: 0 1.75rem;
+    padding: 0;
 }
 
 .productView-options .form-field {
@@ -582,7 +590,7 @@
     @include breakpoint('medium') {
         // 801px and up
         text-align: left;
-        max-width: 300px;
+        // max-width: 300px;
         margin-top: 0;
     }
 }
@@ -590,7 +598,7 @@
 .price-qty-wrapper + .form-action {
     margin: 0;
     padding: 0;
-    margin-right: 24px;
+    // margin-right: 24px;
 }
 
 .productView-options .form-action .button {
@@ -666,8 +674,8 @@
 
 .pdp-cta-heading {
     @extend h4;
-    font-size: 18px;
-    text-align: center;
+    font-size: 22px;
+    text-align: left;
     border-bottom: 1px solid $color-alt--hover;
     padding-bottom: 32px;
     margin-bottom: 24px;
@@ -678,7 +686,7 @@
     @include breakpoint('medium') {
         // 801px and up
         text-align: left;
-        font-size: 50px;
+        font-size: 32px;
         padding-bottom: 24px;
         // margin-top: 48px;
         // margin-bottom: 40px;

@@ -65,6 +65,7 @@ h4 {
     font-size: $fontSize-medium--mobile;
     font-family: $font-family--heading;
     font-weight: $h4-font-weight;
+    
 
     @include breakpoint('medium') {
         // 801px and up
@@ -536,6 +537,4 @@ a {
   /* ==========================================================
  * ## Page Headings
  * ========================================================== */
- .page-heading {
-    //  line-height: 33px;
- }
+ 
