@@ -2,6 +2,7 @@
     <article class="listItem"
             data-event-type="{{event}}"
             data-entity-id="{{id}}"
+            data-subcategory-id="{{#each category}}{{#if @last}}{{trim this}}{{else}}{{trim this}},{{/if}}{{/each}}"
             data-position="{{position}}"
             data-name="{{name}}"
             data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
@@ -9,7 +10,10 @@
             data-product-price="{{#or customer (unless theme_settings.restrict_to_login)}}{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}{{else}}{{lang 'common.login_for_pricing'}}{{/or}}"
     >
 {{else}}
-    <article class="listItem" data-entity-id="{{id}}">
+    <article class="listItem" 
+            data-entity-id="{{id}}"
+            data-subcategory-id="{{#each category}}{{#if @last}}{{trim this}}{{else}}{{trim this}},{{/if}}{{/each}}"
+            >
 {{/if}}
     <figure class="listItem-figure">
         <a href="{{url}}"

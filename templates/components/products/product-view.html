@@ -82,21 +82,29 @@
                         <div class="sku-rating-wrapper">
                         {{product.detail_messages}}
                         <dl class="productView-info">
-                            <dt class="productView-info-name sku-label"{{#unless product.sku}} {{/unless}}>{{lang 'products.sku'}}</dt>
-                            <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
-                            <dt class="productView-info-name upc-label"{{#unless product.upc}}{{/unless}}>{{lang 'products.upc'}}</dt>
-                            <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                            <div class="productView-info-details">
+                                <dt class="productView-info-name sku-label"{{#unless product.sku}} {{/unless}}>{{lang 'products.sku'}}</dt>
+                                <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
+                            </div>
+                            <div class="productView-info-details">
+                                <dt class="productView-info-name upc-label"{{#unless product.upc}}{{/unless}}>{{lang 'products.upc'}}</dt>
+                                <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>    
+                            </div>
                             {{#if schema}}
                                 {{#if product.mpn}}<meta itemprop="mpn" content="{{product.mpn}}" />{{/if}}
                                 {{#if product.gtin}}<meta itemprop="gtin" content="{{product.gtin}}" />{{/if}}
                             {{/if}}
                             {{#if product.condition}}
-                                <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-                                <dd class="productView-info-value">{{product.condition}}</dd>
+                                <div class="productView-info-details">
+                                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                                    <dd class="productView-info-value">{{product.condition}}</dd>   
+                                </div>
                             {{/if}}
                             {{#if product.availability}}
-                                <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-                                <dd class="productView-info-value">{{product.availability}}</dd>
+                                <div class="productView-info-details">
+                                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                                    <dd class="productView-info-value">{{product.availability}}</dd>
+                                </div>
                             {{/if}}
                             {{#all product.weight theme_settings.show_product_weight}}
                                 <dt class="productView-info-name weight">{{lang 'products.weight'}}</dt>
@@ -204,21 +212,24 @@
                                 {{> components/products/modals/writeReview}}
                             {{/if}}
                         </div>
-                        </div>  
-                        <h2 class="productView-title-small" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h2>
-                        {{#if product.brand}}
-                            <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="https://schema.org/Brand"{{/if}}>
-                                <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
-                            </h2>
-                        {{/if}}
+                        </div>
+                        <div class="titlePrice">
+                            <h2 class="productView-title-small" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h2>
+                            {{#if product.brand}}
+                                <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="https://schema.org/Brand"{{/if}}>
+                                    <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+                                </h2>
+                            {{/if}}
+                            <div class="productView-price">
+                                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                                    {{> components/products/price price=product.price schema_org=schema}}
+                                {{else}}
+                                    {{> components/common/login-for-pricing}}
+                                {{/or}}
+                            </div>
+                        </div>
                     </div> 
-                    <div class="productView-price">
-                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                            {{> components/products/price price=product.price schema_org=schema}}
-                        {{else}}
-                            {{> components/common/login-for-pricing}}
-                        {{/or}}
-                    </div>
+                    
                 </div>
                 {{#filter product.custom_fields '__pdp-modal-link' property='name'}}
                     <a href="##" class="pdp-modal__link" data-reveal-id="pdp-modal">

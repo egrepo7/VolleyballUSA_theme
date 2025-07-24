@@ -2,7 +2,8 @@
   "customLayouts": {
     "brand": {},
     "category": {
-      "category-list-full-width.html": "/padding/"
+      "category-list-full-width.html": "/padding/",
+      "category-filter-tabs.html": "/test_category/test_outdoor_nets/"
     },
     "page": {},
     "product": {}

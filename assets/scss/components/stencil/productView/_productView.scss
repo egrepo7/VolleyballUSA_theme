@@ -244,6 +244,7 @@
 .productView-info-name,
 .productView-info-value {
     float: left;
+    color: grey;
 
     @include breakpoint("small") {
         float: none;

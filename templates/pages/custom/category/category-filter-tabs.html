@@ -1,0 +1,247 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<div class="page list-full-width">
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+            <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}}
+
+    <div class="page-content" >
+        <!-- category filter tabs -->
+        <section class="category__content-container">
+            {{!-- {{#if category.image}}
+                {{> components/common/responsive-img
+                    image=category.image
+                    fallback_size=theme_settings.zoom_size
+                    lazyload=theme_settings.lazyload_mode
+                    class="category-header-image"
+                }}
+            {{/if}} --}}
+            {{#unless theme_settings.hide_category_page_heading }}
+                <h1 class="page-heading page-heading--category">{{category.name}}</h1>
+                {{{region name="category_below_header"}}}
+                {{!> components/custom/category-overlap-cta }}
+            {{/unless}}
+        </section>
+        <!-- Subcategory filtering -->
+         <!-- <div class="subcategory-tabs">
+            <button class="subcategory-tab active" data-subcategory-id="all" type="button">All Products</button>
+            {{#each category.subcategories}}
+                <button
+                    class="subcategory-tab"
+                    data-subcategory-id="{{toLowerCase name}}"
+                    type="button"
+                >
+                    {{name}}
+                </button>
+            {{/each}}
+        </div> -->
+        <!-- Alternate tab style -->
+        <div class="subcategory-tabs subcategory-tabs--alt">
+            <button class="subcategory-tab-alt active" data-subcategory-id="all" type="button">All Products</button>
+            {{#each category.subcategories}}
+                <button
+                    class="subcategory-tab-alt"
+                    data-subcategory-id="{{toLowerCase name}}"
+                    type="button"
+                >
+                    {{name}}
+                </button>
+            {{/each}}
+        </div>
+        <!-- {{{region name="category_below_heading"}}}
+        {{#if theme_settings.its.category_subcat_cards}}
+            {{> components/custom/subcat-grid}}
+        {{/if}} -->
+        <section id="product-listing-container">
+            {{> components/custom/category/product-listing-tabs }}
+        </section>
+        {{#if category.description}}
+            <div class="category__description-container">
+                {{{category.description}}}
+            </div>
+        {{/if}}
+        <!-- ITS LOADING OVERLAY -->
+        <div class="loadingOverlay loadingOverlay--product-listing"></div>
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+
+<style>
+.subcategory-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.subcategory-tab {
+    font-family: inherit; /* Use theme font */
+    font-size: 1rem;
+    padding: 0.5em 1.25em;
+    border: 1px solid #ddd;
+    background: #f8f8f8;
+    color: #333;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    outline: none;
+}
+.subcategory-tab:hover {
+    background: #eaeaea;
+    border-color: #bbb;
+    color: #222;
+}
+.subcategory-tab.active {
+    background: rgb(237, 28, 36);
+    color: #fff;
+    border-color: rgb(237, 28, 36);
+    font-weight: bold;
+}
+.subcategory-tabs--alt {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    align-items: flex-end;
+}
+.subcategory-tabs--alt::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: #ddd;
+    z-index: 0;
+}
+.subcategory-tab-alt {
+    font-family: inherit;
+    font-size: 1.5rem; /* 24px */
+    background: none;
+    border: none;
+    color: #333;
+    padding: 0.5em 0.75em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+}
+.subcategory-tab-alt:hover {
+    color: rgb(237, 28, 36);
+    border-bottom: 2px solid #ddd;
+}
+.subcategory-tab-alt.active {
+    color: rgb(237, 28, 36);
+    border-bottom: 3px solid rgb(237, 28, 36);
+    font-weight: bold;
+}
+.page-heading--category {
+    text-align: left;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    text-transform: uppercase
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const subcatTabs = document.querySelectorAll('.subcategory-tab');
+        subcatTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                subcatTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const subcatName = this.getAttribute('data-subcategory-id').trim().toLowerCase();
+                // Only target .product containers for show/hide
+                const allProducts = Array.from(document.querySelectorAll('.product'));
+                allProducts.forEach(product => {
+                    // Find data-subcategory-id from child .listItem or from itself
+                    let prodSubcats = '';
+                    const listItem = product.querySelector('.listItem');
+                    if (listItem && listItem.getAttribute('data-subcategory-id')) {
+                        prodSubcats = listItem.getAttribute('data-subcategory-id').trim();
+                    } else if (product.getAttribute('data-subcategory-id')) {
+                        prodSubcats = product.getAttribute('data-subcategory-id').trim();
+                    }
+                    const prodSubcatsArr = prodSubcats.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+                    const matched = prodSubcatsArr.some(cat => {
+                        const lastSegment = cat.split('/').pop();
+                        return subcatName === lastSegment;
+                    });
+                    if (subcatName === 'all' || matched) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+        // Add JS for alternate tabs
+        const subcatTabsAlt = document.querySelectorAll('.subcategory-tab-alt');
+        subcatTabsAlt.forEach(tab => {
+            tab.addEventListener('click', function() {
+                subcatTabsAlt.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                const subcatName = this.getAttribute('data-subcategory-id').trim().toLowerCase();
+                const allProducts = Array.from(document.querySelectorAll('.product'));
+                allProducts.forEach(product => {
+                    let prodSubcats = '';
+                    const listItem = product.querySelector('.listItem');
+                    if (listItem && listItem.getAttribute('data-subcategory-id')) {
+                        prodSubcats = listItem.getAttribute('data-subcategory-id').trim();
+                    } else if (product.getAttribute('data-subcategory-id')) {
+                        prodSubcats = product.getAttribute('data-subcategory-id').trim();
+                    }
+                    const prodSubcatsArr = prodSubcats.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+                    const matched = prodSubcatsArr.some(cat => {
+                        const lastSegment = cat.split('/').pop();
+                        return subcatName === lastSegment;
+                    });
+                    if (subcatName === 'all' || matched) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+{{/partial}}
+{{> layout/base container_active=true}}

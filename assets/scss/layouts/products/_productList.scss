@@ -239,7 +239,7 @@
     }
 
     @include breakpoint("medium") {
-        font-size: fontSize("small");
+        font-size: 2rem;
     }
 
     @include breakpoint('large') {
