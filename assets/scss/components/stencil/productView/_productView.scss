@@ -184,11 +184,11 @@
 
 .productView-price {
     font-size: fontSize("smaller");
-    margin-bottom: spacing("third");
+    // margin-bottom: spacing("third");
 
     @include breakpoint("medium") {
         font-size: fontSize("larger");
-        margin-bottom: spacing("base");
+        // margin-bottom: spacing("base");
     }
 
     .price-section--saving {

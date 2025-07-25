@@ -1,4 +1,3 @@
-
 .page--product .productView > .container:first-of-type {
     display: flex;
     flex-direction: column;
@@ -41,7 +40,7 @@
     letter-spacing: -0.03rem;
     margin: 0;
     @include breakpoint('medium') {
-        text-align: initial;
+        text-align: left;
         font-size: 2rem;  }
 }
 
@@ -126,9 +125,17 @@
 
 .titlePrice {
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    @include breakpoint('medium') {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
 }
 
 .sku-rating-wrapper {
@@ -136,7 +143,7 @@
     margin-bottom: 8px;
     gap: 16px;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     color: grey;
     justify-content: center;
     // padding: 0px 0 0 16px;
@@ -344,7 +351,7 @@
 .price.price--withTax,
 .price--withoutTax {
     color: $color-primary;
-    font-size: 2rempx;
+    font-size: 2rem;
     font-weight: 700;
 
 }

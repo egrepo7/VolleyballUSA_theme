@@ -73,6 +73,7 @@
     <body class="{{> components/attributes/body-classes }}" data-graphql="{{ settings.storefront_api.token }}">
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
         {{> components/custom/header-2/header-2 }}
+        {{{region name="category_hero"}}}
         {{#and (if theme_settings.its.kitchen_sink) (if in_development)}}
             {{> components/custom/kitchen-sink}}
         {{else}}
