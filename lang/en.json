@@ -993,8 +993,8 @@
                         "item-2": {
                             "name": "Boundary Lines",
                             "url": "/boundary-lines/",
-                            "has-sub-items": "true",
-                            "number-of-sub-items": "3",
+                            "has-sub-items": "false",
+                            "number-of-sub-items": "0",
                             "sub-item-1": {
                                 "name": "Adjustable",
                                 "url": "/boundary-lines/",

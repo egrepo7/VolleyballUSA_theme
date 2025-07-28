@@ -40,7 +40,6 @@ category:
             // Hero overlay content injection
             var heroContent = document.querySelector('.category-hero-content');
             var catId = heroContent ? heroContent.getAttribute('data-category-id') : null;
-            console.log('catId:', catId);
             if (catId) {
                 fetch('/assets/content/category-hero-content.json')
                   .then(function(res) { return res.json(); })

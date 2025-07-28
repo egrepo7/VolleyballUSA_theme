@@ -1,9 +1,19 @@
 <div class="form-field" data-product-attribute="set-radio" role="radiogroup" aria-labelledby="radio-group-label-{{id}}">
-    <label class="form-label form-label--alternate form-label--inlineSmall" id="radio-group-label-{{id}}">
-        {{ this.display_name }}:
+    <span class="form-label form-label--alternate form-label--inlineSmall" id="radio-group-label-{{id}}">
+        {{ this.display_name }}{{#if required}} <span style="color:red">*</span>{{/if}}
+    </span>
 
-        {{> components/common/requireness-msg}}
-    </label>
+    <input
+        class="form-radio"
+        type="radio"
+        id="attribute_radio_{{id}}_placeholder"
+        name="attribute[{{id}}]"
+        value=""
+        {{#unless required}}checked{{/unless}}
+        style="display:none;"
+        disabled
+    >
+    <label class="form-label form-label--placeholder" for="attribute_radio_{{id}}_placeholder" style="font-weight:bold; opacity:0.7; cursor:default;">{{lang 'products.choose_options'}}</label>
 
     {{#unless required}}
         <input

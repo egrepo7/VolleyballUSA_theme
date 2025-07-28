@@ -133,7 +133,7 @@
     @include breakpoint('medium') {
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
         gap: 0;
     }
 }
@@ -1020,4 +1020,13 @@
 .previewCartCheckout {
     max-width: 450px;
     margin: 0 auto;
+}
+
+
+.product-options {
+    margin-top: 16px;
+
+    select {
+        margin-bottom: 1rem;
+    }
 }

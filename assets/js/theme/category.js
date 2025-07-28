@@ -55,7 +55,10 @@ export default class Category extends CatalogPage {
 
         this.ariaNotifyNoProducts();
 
-        this.facetedSearch.initMobileDropdowns();
+        // Fix: Only call initMobileDropdowns if it exists
+        if (this.facetedSearch && typeof this.facetedSearch.initMobileDropdowns === 'function') {
+            this.facetedSearch.initMobileDropdowns();
+        }
     }
 
     ariaNotifyNoProducts() {

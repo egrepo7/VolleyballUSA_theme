@@ -1,0 +1,13 @@
+{{#extends 'layouts/base'}}
+{{#content 'page'}}
+    <div class="container">
+        <h1 class="productView-title">This is a minimal custom product template (v2)</h1>
+        <p>Product title: {{product.title}}</p>
+        <p>Product ID: {{product.id}}</p>
+        <p>Brand: {{product.brand.name}}</p>
+        <p>Price: {{product.price.with_tax.formatted}}</p>
+        <p>SKU: {{product.sku}}</p>
+        <p>Test: If you see this, your mapping and template are working.</p>
+    </div>
+{{/content}}
+{{/extends}}
